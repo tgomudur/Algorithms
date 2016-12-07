@@ -9,7 +9,7 @@ import java.lang.Character;
 
 public class Trie {
     private TrieNode root;
-    private int numOfWords;
+    protected int numOfWords;
 
     Trie() {
         root = new TrieNode();
@@ -23,16 +23,13 @@ public class Trie {
         // Iteratively insert each character in the word
         for (int i = 0; i < word.length(); i++) {
             char data = word.charAt(i);
-            // Case 1: If character is present below, go to that node
-            if (children.containsKey(data)) {
-                current = children.get(data);
-            }
-            // Case 2: Doesn't contain the character
-            else {
+            // Case 1: Doesn't contain the character,add data to children
+            if (!children.containsKey(data)) {
                 newNode = new TrieNode(data);
                 children.put(data, newNode);
-                current = children.get(data);
             }
+            // Case 2: If character is present below, go to that node
+            current = children.get(data);
 
             // Setting isWord if its last character
             if (i == word.length() - 1) {
@@ -42,10 +39,6 @@ public class Trie {
             children = current.getChildren();
         }
 
-        if (children == null) {
-            current.setIsWord(true);
-        }
-        this.numOfWords += 1;
     }
 
     public TrieNode search(String word) {

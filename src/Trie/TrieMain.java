@@ -27,5 +27,6 @@ public class TrieMain {
             System.out.println("\n NOPE");
 
 
+        System.out.println("\n Num of elements: " + t.numOfWords);
     }
 }
