@@ -3,7 +3,7 @@ package Tree;
 /**
  * Created by tharun on 12/7/16.
  */
-public class BinarySearchTreeNode<T> {
+public class BinarySearchTreeNode<T extends Comparable<T>>{
     private T data;
     private BinarySearchTreeNode<T> left;
     private BinarySearchTreeNode<T> right;
@@ -26,11 +26,11 @@ public class BinarySearchTreeNode<T> {
         this.data = data;
     }
 
-    public T getLeft() {
+    public BinarySearchTreeNode<T> getLeft() {
         return this.left;
     }
 
-    public T getRight() {
+    public BinarySearchTreeNode<T> getRight() {
         return this.right;
     }
 
@@ -41,4 +41,15 @@ public class BinarySearchTreeNode<T> {
     public void setRight(BinarySearchTreeNode<T> right) {
         this.right = right;
     }
+
+//    @Override
+//    public int compareTo(BinarySearchTreeNode<T> other){
+//        if (this.getData() == other.getData())
+//            return 0;
+//        else if (this.getData() < other.getData())
+//            return -1;
+//        else
+//            return 1;
+//
+//    }
 }
