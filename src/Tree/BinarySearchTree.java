@@ -143,4 +143,34 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
     }
 
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> paths = new ArrayList<String>();
+        String currentPath = "";
+        if (root == null)
+            return paths;
+        paths = binaryTreePaths(root, paths, currentPath);
+        return paths;
+    }
+
+    private List<String> binaryTreePaths(TreeNode root, List<String> paths, String currentPath) {
+        if (root.left == null && root.right == null) {
+            if (currentPath.equals(""))
+                paths.add(currentPath + root.val);
+            else
+                paths.add(currentPath + "->" + root.val);
+            return paths;
+        } else {
+            if (currentPath.equals(""))
+                currentPath = currentPath + root.val;
+            else
+                currentPath = currentPath + "->" + root.val;
+
+            if (root.left != null)
+                binaryTreePaths(root.left, paths, currentPath);
+
+            if (root.right != null)
+                binaryTreePaths(root.right, paths, currentPath);
+        }
+        return paths;
+    }
 }
