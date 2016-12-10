@@ -20,19 +20,20 @@ public class BinarySearchTreeMain {
         BinarySearchTreeNode node = bst.search(2);
         System.out.println("\nFound:" + node.getData());
 
-        System.out.println("\nTesting delete: \n");
+//        System.out.println("\nTesting delete: \n");
+//
+//        System.out.println("\nDeleting 5: \n");
+//        bst.delete(5);
+//        bst.print();
+//
+//        System.out.println("\nDeleting 1: \n");
+//        bst.delete(1);
+//        bst.print();
+//
+//        System.out.println("\nDeleting 4: \n");
+//        bst.delete(4);
+//        bst.print();
 
-        System.out.println("\nDeleting 5: \n");
-        bst.delete(5);
-        bst.print();
-
-        System.out.println("\nDeleting 1: \n");
-        bst.delete(1);
-        bst.print();
-
-        System.out.println("\nDeleting 4: \n");
-        bst.delete(4);
-        bst.print();
-
+        bst.printLevelOrder();
     }
 }

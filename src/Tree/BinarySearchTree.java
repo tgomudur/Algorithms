@@ -1,5 +1,11 @@
 package Tree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.String;
+import java.util.Collections;
+import java.util.LinkedList;
+
 /**
  * Created by tharun on 12/7/16.
  */
@@ -143,7 +149,8 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
     }
 
-    public List<String> binaryTreePaths(TreeNode root) {
+    /*
+    public List<String> findBinaryTreePaths(BinarySearchTreeNode<T> root) {
         List<String> paths = new ArrayList<String>();
         String currentPath = "";
         if (root == null)
@@ -152,52 +159,89 @@ public class BinarySearchTree<T extends Comparable<T>>{
         return paths;
     }
 
-    private List<String> binaryTreePaths(TreeNode root, List<String> paths, String currentPath) {
-        if (root.left == null && root.right == null) {
-            return paths.add(currentPath + root.val);
+    private List<String> binaryTreePaths(BinarySearchTreeNode<T> root, List<String> paths, String currentPath) {
+        if (root.getLeft() == null && root.getRight() == null) {
+            return paths.add(currentPath + root.getData());
             ;
         } else {
-            if (root.left != null)
-                binaryTreePaths(root.left, paths, currentPath + "->" + root.val);
+            if (root.getLeft() != null)
+                binaryTreePaths(root.getLeft(), paths, currentPath + "->" + root.getData());
 
-            if (root.right != null)
-                binaryTreePaths(root.right, paths, currentPath + "->" + root.val);
+            if (root.getRight() != null)
+                binaryTreePaths(root.getRight(), paths, currentPath + "->" + root.getData());
         }
         return paths;
     }
+    */
+    public void printLevelOrder() {
+        if (root == null) {
+            System.out.println("\nEmpty tree!");
+        } else {
+            List<List<T>> paths = levelOrderBottom(root);
+            for (List<T> level : paths) {
+                System.out.println(level);
+            }
+        }
+    }
 
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> paths = new LinkedList<>();
-        List<Integer> level;
+    // Faster implementation for level order traversal
+    public List<List<T>> levelOrderBottom(BinarySearchTreeNode<T> root) {
+        List<List<T>> paths = new ArrayList<>();
+        if (root == null) return paths;
+        else {
+            paths = levelOrderUtil(root, paths, 0);
+        }
+
+        Collections.reverse(paths);
+        return paths;
+    }
+
+    public List<List<T>> levelOrderUtil(BinarySearchTreeNode<T> root, List<List<T>> paths, int currentLevel) {
+        if (root == null) return null;
+
+        if (currentLevel >= paths.size()) {
+            List<T> level = new ArrayList<T>();
+            paths.add(currentLevel, level);
+        }
+        paths.get(currentLevel).add(root.getData());
+        levelOrderUtil(root.getLeft(), paths, currentLevel + 1);
+        levelOrderUtil(root.getRight(), paths, currentLevel + 1);
+
+        return paths;
+    }
+
+    public List<List<T>> levelOrderBottomSlower(BinarySearchTreeNode<T> root) {
+        List<List<T>> paths = new LinkedList<>();
+        List<T> level;
         int height = 0;
         if (root == null) return paths;
         else {
             height = findHeight(root);
             System.out.println(height);
             for (int i = 0; i < height; i++) {
-                level = new LinkedList<Integer>();
+                level = new LinkedList<T>();
                 paths.add(0, printGivenLevel(root, level, 0, i));
             }
         }
         return paths;
     }
 
-    public List<Integer> printGivenLevel(TreeNode root, List<Integer> level, int currentLevel, int targetLevel) {
+    public List<T> printGivenLevel(BinarySearchTreeNode<T> root, List<T> level, int currentLevel, int targetLevel) {
         if (root == null) return level;
 
         if (currentLevel == targetLevel) {
-            level.add(root.val);
+            level.add(root.getData());
             return level;
         }
 
-        printGivenLevel(root.left, level, currentLevel + 1, targetLevel);
-        printGivenLevel(root.right, level, currentLevel + 1, targetLevel);
+        printGivenLevel(root.getLeft(), level, currentLevel + 1, targetLevel);
+        printGivenLevel(root.getRight(), level, currentLevel + 1, targetLevel);
 
         return level;
     }
 
-    public int findHeight(TreeNode root) {
+    public int findHeight(BinarySearchTreeNode<T> root) {
         if (root == null) return 0;
-        else return Math.max(findHeight(root.left), findHeight(root.right)) + 1;
+        else return Math.max(findHeight(root.getLeft()), findHeight(root.getRight())) + 1;
     }
 }
