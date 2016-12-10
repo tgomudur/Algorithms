@@ -167,7 +167,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
     }
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> paths = new ArrayList<>();
+        List<List<Integer>> paths = new LinkedList<>();
         List<Integer> level;
         int height = 0;
         if (root == null) return paths;
@@ -175,7 +175,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
             height = findHeight(root);
             System.out.println(height);
             for (int i = 0; i < height; i++) {
-                level = new ArrayList<Integer>();
+                level = new LinkedList<Integer>();
                 paths.add(0, printGivenLevel(root, level, 0, i));
             }
         }
