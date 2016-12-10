@@ -165,4 +165,39 @@ public class BinarySearchTree<T extends Comparable<T>>{
         }
         return paths;
     }
+
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> paths = new ArrayList<>();
+        List<Integer> level;
+        int height = 0;
+        if (root == null) return paths;
+        else {
+            height = findHeight(root);
+            System.out.println(height);
+            for (int i = 0; i < height; i++) {
+                level = new ArrayList<Integer>();
+                paths.add(0, printGivenLevel(root, level, 0, i));
+            }
+        }
+        return paths;
+    }
+
+    public List<Integer> printGivenLevel(TreeNode root, List<Integer> level, int currentLevel, int targetLevel) {
+        if (root == null) return level;
+
+        if (currentLevel == targetLevel) {
+            level.add(root.val);
+            return level;
+        }
+
+        printGivenLevel(root.left, level, currentLevel + 1, targetLevel);
+        printGivenLevel(root.right, level, currentLevel + 1, targetLevel);
+
+        return level;
+    }
+
+    public int findHeight(TreeNode root) {
+        if (root == null) return 0;
+        else return Math.max(findHeight(root.left), findHeight(root.right)) + 1;
+    }
 }
