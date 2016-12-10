@@ -154,22 +154,14 @@ public class BinarySearchTree<T extends Comparable<T>>{
 
     private List<String> binaryTreePaths(TreeNode root, List<String> paths, String currentPath) {
         if (root.left == null && root.right == null) {
-            if (currentPath.equals(""))
-                paths.add(currentPath + root.val);
-            else
-                paths.add(currentPath + "->" + root.val);
-            return paths;
+            return paths.add(currentPath + root.val);
+            ;
         } else {
-            if (currentPath.equals(""))
-                currentPath = currentPath + root.val;
-            else
-                currentPath = currentPath + "->" + root.val;
-
             if (root.left != null)
-                binaryTreePaths(root.left, paths, currentPath);
+                binaryTreePaths(root.left, paths, currentPath + "->" + root.val);
 
             if (root.right != null)
-                binaryTreePaths(root.right, paths, currentPath);
+                binaryTreePaths(root.right, paths, currentPath + "->" + root.val);
         }
         return paths;
     }
