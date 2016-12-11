@@ -256,4 +256,33 @@ public class BinarySearchTree<T extends Comparable<T>>{
             return isSameTree(p.getLeft(), q.getLeft()) && isSameTree(p.getRight(), q.getRight());
         return false;
     }
+
+    public boolean isSymmetric(BinarySearchTreeNode<T> root) {
+        if (root == null) return true;
+        return isSymmetric(root.getLeft(), root.getRight());
+    }
+
+    private boolean isSymmetric(BinarySearchTreeNode<T> p, BinarySearchTreeNode<T> q) {
+        if (p == null || q == null) return (p == q);
+        if (p.getData() == q.getData())
+            return isSymmetric(p.getLeft(), q.getRight()) && isSymmetric(p.getRight(), q.getLeft());
+        return false;
+    }
+
+    public List<List<T>> zigzagLevelOrder(BinarySearchTreeNode<T> root) {
+        List<List<T>> paths = new ArrayList<>();
+        if (root == null) return paths;
+        return zigzagLevelOrder(root, paths, 0);
+    }
+
+    private List<List<T>> zigzagLevelOrder(BinarySearchTreeNode<T> root, List<List<T>> paths, int currentLevel) {
+        if (root == null) return paths;
+        if (currentLevel >= paths.size()) paths.add(currentLevel, new ArrayList<T>());
+        if (currentLevel % 2 == 0) paths.get(currentLevel).add(root.getData());
+        else paths.get(currentLevel).add(0, root.getData());
+
+        zigzagLevelOrder(root.getLeft(), paths, currentLevel + 1);
+        zigzagLevelOrder(root.getRight(), paths, currentLevel + 1);
+        return paths;
+    }
 }

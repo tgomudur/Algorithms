@@ -1,5 +1,8 @@
 package Tree;
 
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * Created by tharun on 12/7/16.
  */
@@ -44,6 +47,14 @@ public class BinarySearchTreeMain {
         bst.printLevelOrder();
 
         System.out.println(bst.sameAs(bst1));
+
+        System.out.println(bst.isSymmetric(bst.root));
+
+        List<List<Integer>> paths = bst.zigzagLevelOrder(bst.root);
+
+        for (List<Integer> path : paths) {
+            System.out.println(path);
+        }
 
     }
 }
