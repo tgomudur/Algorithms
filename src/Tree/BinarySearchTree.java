@@ -150,6 +150,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
     }
 
     /*
+    // TODO: Review this to work with generics
     public List<String> findBinaryTreePaths(BinarySearchTreeNode<T> root) {
         List<String> paths = new ArrayList<String>();
         String currentPath = "";
@@ -243,5 +244,16 @@ public class BinarySearchTree<T extends Comparable<T>>{
     public int findHeight(BinarySearchTreeNode<T> root) {
         if (root == null) return 0;
         else return Math.max(findHeight(root.getLeft()), findHeight(root.getRight())) + 1;
+    }
+
+    public boolean sameAs(BinarySearchTree p) {
+        return isSameTree(this.root, p.root);
+    }
+
+    public boolean isSameTree(BinarySearchTreeNode<T> p, BinarySearchTreeNode<T> q) {
+        if (p == null || q == null) return (p == q);
+        if (p.getData() == q.getData())
+            return isSameTree(p.getLeft(), q.getLeft()) && isSameTree(p.getRight(), q.getRight());
+        return false;
     }
 }

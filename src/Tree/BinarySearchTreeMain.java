@@ -6,6 +6,13 @@ package Tree;
 public class BinarySearchTreeMain {
     public static void main(String[] args){
         BinarySearchTree bst = new BinarySearchTree<Integer>();
+        BinarySearchTree bst1 = new BinarySearchTree<Integer>();
+        bst1.insert(4);
+        bst1.insert(3);
+        bst1.insert(6);
+        bst1.insert(1);
+        bst1.insert(2);
+        bst1.insert(5);
 
         System.out.println("\nTesting insert: \n");
         bst.insert(4);
@@ -35,5 +42,8 @@ public class BinarySearchTreeMain {
 //        bst.print();
 
         bst.printLevelOrder();
+
+        System.out.println(bst.sameAs(bst1));
+
     }
 }
