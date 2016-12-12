@@ -18,6 +18,11 @@ public class BinarySearchTree<T extends Comparable<T>>{
         this.numOfElements = 0;
     }
 
+    BinarySearchTree(BinarySearchTreeNode<T> root, int num) {
+        this.root = root;
+        this.numOfElements = num;
+    }
+
     public void insert(T data) {
         BinarySearchTreeNode<T> newNode = new BinarySearchTreeNode<T>(data);
         // Case: Empty tree
@@ -115,40 +120,47 @@ public class BinarySearchTree<T extends Comparable<T>>{
     public void print(){
         if (root == null)
             return;
-        else{
-            printInOrder(root);
-        }
-    }
-    private void printInOrder(BinarySearchTreeNode<T> root) {
-        if (root == null)
-            return;
-        else{
-            printInOrder(root.getLeft());
-            System.out.print(root.getData());
-            printInOrder(root.getRight());
-        }
+        System.out.println(inOrder(root, new ArrayList<T>()));
     }
 
-    public void printPostOrder(BinarySearchTreeNode<T> root) {
-        if (root == null)
-            return;
-        else{
-            System.out.print(root.getData());
-            printInOrder(root.getLeft());
-            printInOrder(root.getRight());
-        }
+    public List<T> inOrder(){
+        if (root == null) return null;
+        return inOrder(root, new ArrayList<T>());
     }
 
-    public void printPreOrder(BinarySearchTreeNode<T> root) {
-        if (root == null)
-            return;
-        else{
-            printInOrder(root.getLeft());
-            printInOrder(root.getRight());
-            System.out.print(root.getData());
-        }
+    public List<T> preOrder(){
+        if (root == null) return null;
+        return preOrder(root, new ArrayList<T>());
     }
 
+    public List<T> postOrder(){
+        if (root == null) return null;
+        return postOrder(root, new ArrayList<T>());
+    }
+
+    private List<T> inOrder(BinarySearchTreeNode<T> root, List<T> path) {
+        if (root == null) return null;
+        inOrder(root.getLeft(), path);
+        path.add(root.getData());
+        inOrder(root.getRight(), path);
+        return path;
+    }
+
+    private List<T> preOrder(BinarySearchTreeNode<T> root, List<T> path) {
+        if (root == null) return null;
+        path.add(root.getData());
+        preOrder(root.getLeft(), path);
+        preOrder(root.getRight(), path);
+        return path;
+    }
+
+    private List<T> postOrder(BinarySearchTreeNode<T> root, List<T> path) {
+        if (root == null) return null;
+        postOrder(root.getLeft(), path);
+        postOrder(root.getRight(), path);
+        path.add(root.getData());
+        return path;
+    }
     /*
     // TODO: Review this to work with generics
     public List<String> findBinaryTreePaths(BinarySearchTreeNode<T> root) {
