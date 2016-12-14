@@ -2,6 +2,8 @@ package Tree;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Created by incyphae10 on 12/12/16.
  * This class is used to serialize and deserialize a BST.
@@ -24,15 +26,17 @@ class Codec<T extends Comparable<T>> {
         if (data.equals("")) return null;
 
         String[] preorder = data.split(",");
-        @SuppressWarnings("unchecked")
-        T[] preorderArr = (T[]) new Object[preorder.length];
+        List<Integer> preOrderList = new ArrayList<Integer>();
         for (int i = 0; i < preorder.length; i++)
-            preorderArr[i] = (T) preorder[i];
+            preOrderList.add(Integer.parseInt(preorder[i]));
 
-        T[] inorderArr = Arrays.copyOf(preorderArr, preorder.length);
-        Arrays.sort(inorderArr);
+        List<Integer> inOrderList = new ArrayList<>(preOrderList);
+        Collections.sort(inOrderList);
         TreeBuilder tb = new TreeBuilder<Integer>();
-        return tb.buildTreeFromPostInOrder(preorderArr, inorderArr);
+
+//        System.out.println(preOrderList);
+//        System.out.println(inOrderList);
+        return tb.buildTreeFromPreInOrder(preOrderList, inOrderList);
     }
 }
 
