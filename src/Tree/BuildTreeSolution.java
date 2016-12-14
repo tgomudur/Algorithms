@@ -60,9 +60,9 @@ public class BuildTreeSolution{
         bst.insert(2);
         bst.insert(5);
 
-        List<Integer> inOrderList = bst.inOrder();
-        List<Integer> preOrderList = bst.preOrder();
-        List<Integer> postOrderList = bst.postOrder();
+        List<Integer> inOrderList = bst.inOrder(bst.root);
+        List<Integer> preOrderList = bst.preOrder(bst.root);
+        List<Integer> postOrderList = bst.postOrder(bst.root);
 
         int numOfElements = inOrderList.size();
 
@@ -75,7 +75,7 @@ public class BuildTreeSolution{
 
         BinarySearchTree newbst = new BinarySearchTree<Integer>(root, numOfElements);
 
-        System.out.println(newbst.postOrder().equals(postOrderList));
+        System.out.println(newbst.postOrder(newbst.root).equals(postOrderList));
 
 
 

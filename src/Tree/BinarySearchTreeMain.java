@@ -29,8 +29,8 @@ public class BinarySearchTreeMain {
         System.out.println("\nSearching 2:");
         BinarySearchTreeNode node = bst.search(2);
         System.out.println("\nFound:" + node.getData());
-        System.out.println("PreOrder Traversal: " + bst.preOrder());
-        System.out.println("InOrder Traversal: " + bst.inOrder());
+        System.out.println("PreOrder Traversal: " + bst.preOrder(bst.root));
+        System.out.println("InOrder Traversal: " + bst.inOrder(bst.root));
 
 
 //        System.out.println("\nTesting delete: \n");

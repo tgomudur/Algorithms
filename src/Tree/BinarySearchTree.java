@@ -78,6 +78,7 @@ public class BinarySearchTree<T extends Comparable<T>>{
             return;
         }else{
             deleteUtil(root, data);
+            this.numOfElements -= 1;
         }
     }
 
@@ -123,17 +124,17 @@ public class BinarySearchTree<T extends Comparable<T>>{
         System.out.println(inOrder(root, new ArrayList<T>()));
     }
 
-    public List<T> inOrder(){
+    public List<T> inOrder(BinarySearchTreeNode<T> root){
         if (root == null) return null;
         return inOrder(root, new ArrayList<T>());
     }
 
-    public List<T> preOrder(){
+    public List<T> preOrder(BinarySearchTreeNode<T> root){
         if (root == null) return null;
         return preOrder(root, new ArrayList<T>());
     }
 
-    public List<T> postOrder(){
+    public List<T> postOrder(BinarySearchTreeNode<T> root){
         if (root == null) return null;
         return postOrder(root, new ArrayList<T>());
     }
