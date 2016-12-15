@@ -4,7 +4,58 @@ package String;
  * Created by tharun on 12/15/16.
  */
 class Solution {
-    public String findLongestPalindromicSubString(String s){
+    // CHoosing centers and expanding on both sides.
+    public String findLongestPalindromicSubString(String inputStr) {
+        int n = inputStr.length();
+
+        if (n == 0 || n == 1) return inputStr;
+
+        String s = "$" + inputStr + "#";
+        int current = 1;
+        int left, right, currentLen, maxLen = 0;
+        int start = 0;
+
+        while (current <= n){
+            left = current - 1;
+            right = current + 1;
+            currentLen = 1;
+            while (s.charAt(left) != '$' && s.charAt(right) != '#'){
+
+                if (s.charAt(left) == s.charAt(right)){
+                    left--;
+                    right++;
+                    currentLen += 2;
+                }else
+                    break;
+            }
+            if (currentLen > maxLen){
+                maxLen = currentLen;
+                start = current - maxLen/2;
+            }
+
+            left = current;
+            right = current + 1;
+            currentLen = 0;
+            while (s.charAt(left) != '$' && s.charAt(right) != '#'){
+                if (s.charAt(left) == s.charAt(right)){
+                    left--;
+                    right++;
+                    currentLen += 2;
+                }else
+                    break;
+            }
+            if (currentLen > maxLen){
+                maxLen = currentLen;
+                start = (current + 1) - maxLen/2;
+            }
+            current++;
+        }
+        return s.substring(start, start + maxLen);
+
+    }
+
+    // Using DP
+    public String findLongestPalindromicSubStringDP(String s){
         int n = s.length();
         boolean[][] table = new boolean[n][n];
         int startIdx = 0;
@@ -44,7 +95,8 @@ class Solution {
 public class LongestSubString {
     public static void main(String[] args){
         Solution s = new Solution();
-        System.out.println(s.findLongestPalindromicSubString("abcdea"));
+        System.out.println(s.findLongestPalindromicSubString("abceaa"));
+
     }
 
 }
