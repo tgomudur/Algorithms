@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by incyphae10 on 12/8/16.
+ * Created by tharun on 12/8/16.
  */
 class Solution {
     public int[] twoSum(int[] nums, int target) {
