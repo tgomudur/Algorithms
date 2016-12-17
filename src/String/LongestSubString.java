@@ -4,7 +4,6 @@ package String;
  * Created by tharun on 12/15/16.
  */
 class Solution {
-    // CHoosing centers and expanding on both sides.
     public String findLongestPalindromicSubString(String inputStr) {
         int n = inputStr.length();
 
