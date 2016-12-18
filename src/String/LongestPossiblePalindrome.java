@@ -2,7 +2,7 @@ package String;
 
 import java.util.HashSet;
 /**
- * Created by incyphae10 on 12/15/16.
+ * Created by tharun on 12/15/16.
  */
 class LongestPossiblePalindromeSolution {
     public int findLongestPossiblePalindrome(String s) {
