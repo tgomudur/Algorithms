@@ -11,14 +11,20 @@ import java.util.ArrayDeque;
 class LongestAbsolutePathSolution{
     public int findLengthOfLongestPath(String input) {
         int maxLen = 0, currLen = 0, currLevel = 0;
+
+        // Using stack to store the length of the path, as we go deeper into the directory structure
         Deque<Integer> stack = new ArrayDeque<Integer>();
         stack.push(0);
 
         for (String s : input.split("\n")){
+            // Finding level by counting tabs
             currLevel = s.lastIndexOf("\t") + 1;
+            // If currentLevel is above level of path in stack, find parent
             while (currLevel + 1 < stack.size()) stack.pop();
+            // Calculate length of path with current file/folder. Remove '/t' and add 1 to include '/'
             currLen = stack.peek() + s.length() - currLevel + 1;
             stack.push(currLen);
+            // If file found, check if its maxLen?
             if (s.contains(".")) maxLen = Math.max(maxLen, currLen);
         }
 
