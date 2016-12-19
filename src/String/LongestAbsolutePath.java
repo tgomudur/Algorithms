@@ -4,6 +4,8 @@ import java.util.Deque;
 import java.util.ArrayDeque;
 /**
  * Created by tharun on 12/18/16.
+ * Problem description available here:
+ * https://leetcode.com/problems/longest-absolute-file-path/
  */
 
 class LongestAbsolutePathSolution{
@@ -23,7 +25,13 @@ class LongestAbsolutePathSolution{
         if (maxLen == 0) return maxLen;
         return maxLen - 1;
     }
+
+    public int findLongestPath(String input) {
+        //TODO: Add implementation
+    }
+
 }
+
 public class LongestAbsolutePath {
     public static void main(String[] args){
         LongestAbsolutePathSolution s = new LongestAbsolutePathSolution();
