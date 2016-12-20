@@ -12,7 +12,7 @@ public class Trie {
     private TrieNode root;
     protected int numOfWords;
 
-    Trie() {
+    public Trie() {
         root = new TrieNode();
         numOfWords = 0;
     }

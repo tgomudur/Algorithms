@@ -1,5 +1,6 @@
 package String;
 
+import Trie.Trie;
 /**
  * Created by incyphae10 on 12/20/16.
  */
@@ -23,13 +24,28 @@ class LongestCommonPrefixSolution {
         for (int i = 0; i < minLen; i++){
             lcp = i;
             char c = strs[minIdx].charAt(i);
-            System.out.println(c);
             for (int j = 0; j < strs.length; j++){
                 if (strs[j].charAt(i) != c) return strs[j].substring(0, lcp);
             }
         }
         return strs[minIdx].substring(0, lcp + 1);
     }
+
+    public String findLongestCommonPrefixUsingTrie(String[] strs){
+         Trie trie = new Trie();
+         for (int i = 0; i < strs.length; i++){
+             if (strs[i].equals("")) return "";
+             trie.addWord(strs[i]);
+         }
+         return trie.findLongestCommonPrefix();
+    }
 }
 public class LongestCommonPrefix {
+    public static void main (String[] args){
+        LongestCommonPrefixSolution s = new LongestCommonPrefixSolution();
+        String[] strs = {"hello","hell", "hel", "help", "helm"};
+        System.out.println(s.findLongestCommonPrefixBrute(strs));
+        System.out.println(s.findLongestCommonPrefixUsingTrie(strs));
+
+    }
 }
