@@ -2,6 +2,7 @@ package Trie;
 
 import java.util.HashMap;
 import java.lang.Character;
+import java.util.Map;
 
 /**
  * Created by tharun on 12/6/16.

@@ -8,11 +8,11 @@ public class TrieMain {
         Trie t = new Trie();
 
         System.out.println("\nTesting addWord function");
-        t.addWord("home");
-        t.addWord("hose");
+        t.addWord("helm");
+        t.addWord("hele");
         t.addWord("hello");
         t.addWord("hell");
-        t.addWord("abc");
+        t.addWord("heo");
 
         System.out.println("\nTesting search");
         System.out.println(t.search("hello").getData());
@@ -22,13 +22,13 @@ public class TrieMain {
 
         System.out.println("\nTesting prefix search");
         if (t.isPrefix("hel"))
-            System.out.println("\n YES");
+            System.out.println("\nYES");
         else
-            System.out.println("\n NOPE");
+            System.out.println("\nNOPE");
 
 
-        System.out.println("\n Num of elements: " + t.numOfWords);
-        System.out.println("\n Longest Common Prefix: " + t.findLongestCommonPrefix());
+        System.out.println("\nNum of elements: " + t.numOfWords);
+        System.out.println("\nLongest Common Prefix: " + t.findLongestCommonPrefix());
 
     }
 }
