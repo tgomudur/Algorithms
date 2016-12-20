@@ -69,5 +69,8 @@ public class LongestAbsolutePath {
         System.out.println("Length of the longest path: "+result);
         System.out.println("The longest path: "+result1);
 
+        System.out.println("Substring 3: "+ "helxo".substring(0, 3));
+
+
     }
 }

@@ -95,4 +95,13 @@ public class Trie {
         }
         return false;
     }
+
+    public String findLongestCommonPrefix(TrieNode root, String prefix){
+        if (root == null || root.getIsWord()) return prefix;
+        if (root.getChildren().size() == 1){
+            for (Map.Entry<Character, TrieNode> entry : root.getChildren().entrySet())
+                return findLongestCommonPrefix(entry.getValue(), prefix + entry.getKey());
+        }
+        return prefix;
+    }
 }
