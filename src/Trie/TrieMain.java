@@ -28,5 +28,7 @@ public class TrieMain {
 
 
         System.out.println("\n Num of elements: " + t.numOfWords);
+        System.out.println("\n Longest Common Prefix: " + t.findLongestCommonPrefix());
+
     }
 }

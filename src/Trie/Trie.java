@@ -96,7 +96,12 @@ public class Trie {
         return false;
     }
 
-    public String findLongestCommonPrefix(TrieNode root, String prefix){
+    public String findLongestCommonPrefix(){
+        if (root != null) return findLongestCommonPrefix(root, "");
+        return "";
+    }
+
+    private String findLongestCommonPrefix(TrieNode root, String prefix){
         if (root == null || root.getIsWord()) return prefix;
         if (root.getChildren().size() == 1){
             for (Map.Entry<Character, TrieNode> entry : root.getChildren().entrySet())
