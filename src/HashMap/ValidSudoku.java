@@ -3,6 +3,7 @@ package HashMap;
 import java.util.HashSet;
 /**
  * Created by tharun on 12/21/16.
+ * Problem description: https://leetcode.com/problems/valid-sudoku/
  */
 
 class ValidSudokuSolution {
