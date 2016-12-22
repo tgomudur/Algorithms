@@ -24,6 +24,21 @@ class ValidSudokuSolution {
         }
         return true;
     }
+    // Alternative method using only one set. More readable.
+    public boolean isValidSudokuClever(char[][] board) {
+        int n = board.length;
+        HashSet<String> seen = new HashSet<String>();
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                char num = board[i][j];
+                if (num != '.'){
+                    if (!seen.add(num + " in row " + i) || !seen.add(num + " in col " + j) || !seen.add(num + " in block " + i/3 + "-" + j/3))
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
 public class ValidSudoku {
