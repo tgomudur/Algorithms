@@ -5,7 +5,7 @@ package HashMap;
  * Problem description : https://leetcode.com/problems/bulls-and-cows/
  */
 class BullsAndCowsSolution {
-
+    // Two pass, two arrays
     public String getHint(String secret, String guess) {
         int[] secretArr = new int[10];
         int[] guessArr = new int[10];
@@ -25,6 +25,26 @@ class BullsAndCowsSolution {
             cows += Math.min(secretArr[i], guessArr[i]);
         }
         return bulls + "A" + cows + "B";
+    }
+    
+    // One pass. Single array
+    public String getHint(String secret, String guess) {
+        public String getHint(String secret, String guess) {
+            int[] countArray = new int[10];
+            char c;
+            int bulls = 0;
+            int cows = 0;
+            for (int i = 0; i < secret.length(); i++){
+                if (secret.charAt(i) == guess.charAt(i)) bulls++;
+                else{
+                    if (countArray[guess.charAt(i) - '0'] > 0) cows++;
+                    if (countArray[secret.charAt(i) - '0'] < 0) cows++;
+                    countArray[guess.charAt(i) - '0']--;
+                    countArray[secret.charAt(i) - '0']++;
+                }
+            }
+            return bulls + "A" + cows + "B";
+        }
     }
 }
 public class BullsAndCows {
