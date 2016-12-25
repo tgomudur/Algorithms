@@ -6,7 +6,7 @@ package HashMap;
  */
 class BullsAndCowsSolution {
     // Two pass, two arrays
-    public String getHint(String secret, String guess) {
+    public String getHint2(String secret, String guess) {
         int[] secretArr = new int[10];
         int[] guessArr = new int[10];
 
@@ -26,7 +26,7 @@ class BullsAndCowsSolution {
         }
         return bulls + "A" + cows + "B";
     }
-    
+
     // One pass. Single array
     public String getHint(String secret, String guess) {
         public String getHint(String secret, String guess) {
@@ -48,4 +48,6 @@ class BullsAndCowsSolution {
     }
 }
 public class BullsAndCows {
+    BullsAndCowsSolution s = new BullsAndCowsSolution();
+    System.out.println(s.getHint("1234", "0111"));
 }
