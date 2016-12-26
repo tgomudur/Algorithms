@@ -1,3 +1,3 @@
 # Algorithms
 
-This repo is used for educational purposes as I brush up my Java skills. 
+This repository is used for educational purposes as I brush up my Java skills. 
