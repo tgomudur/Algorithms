@@ -21,8 +21,8 @@ class SingleNumberSolution {
 
     // XOR solution. Time complexity: O(n), Space complexity: O(1)
     public int getSingleNumber(int[] nums) {
-        int result = 0;
-        for (int num : nums) result = result ^ num;
+        int result = nums[0];
+        for (int i = 1; i < nums.length; i++) result = result ^ num;
         return result;
     }
 }
