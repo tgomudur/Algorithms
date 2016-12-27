@@ -1,10 +1,12 @@
 package HashMap;
 
+import java.util.HashMap;
 /**
  * Created by tharun on 12/26/16.
+ * Problem description: https://leetcode.com/problems/find-the-difference/
  */
 
-public class Solution {
+class FindDifferenceSolution {
     // Using XOR
     public char findTheDifference(String s, String t) {
         int n = t.length();
@@ -32,6 +34,10 @@ public class Solution {
          return t.charAt(0);
      }
 }
-public class FindDifference {
 
+public class FindDifference {
+    public static void main (String[] args){
+        FindDifferenceSolution s = new FindDifferenceSolution();
+        System.out.println(s.findTheDifference("aabcddc", "aabcddce"));
+    }
 }
