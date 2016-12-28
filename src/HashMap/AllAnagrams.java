@@ -49,6 +49,41 @@ class AllAnagramSolution {
         }
         return result;
     }
+
+    // Using Arrays. Works with a character space of only lower cases letters
+    public List<Integer> findAnagramsLowerCaseOnly(String s, String p) {
+        List<Integer> result = new ArrayList<Integer>();
+        int[] sCount = new int[256];
+        int[] pCount = new int[256];
+
+        int n = s.length();
+        int m = p.length();
+        int left = 0, right = 0;
+        char c;
+
+        if (m > n) return result;
+
+        for (int i = 0; i < m; i++){
+            c = p.charAt(i);
+            pCount[c - 'a']++;
+        }
+
+        while (left <= n - m){
+            while (right - left < m){
+                c = s.charAt(right);
+                sCount[c - 'a']++;
+                right++;
+            }
+
+            if (Arrays.equals(sCount, pCount))
+                result.add(left);
+
+            sCount[s.charAt(left) - 'a']--;
+            left++;
+
+        }
+        return result;
+    }
 }
 
 public class AllAnagrams {
