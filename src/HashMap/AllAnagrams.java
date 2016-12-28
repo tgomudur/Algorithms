@@ -4,8 +4,13 @@ package HashMap;
  * Created by tharun on 12/27/16.
  * Problem description: https://leetcode.com/problems/find-all-anagrams-in-a-string/
  */
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 class AllAnagramSolution {
+    // Works with unlimited character space.
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<Integer>();
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
@@ -47,4 +52,8 @@ class AllAnagramSolution {
 }
 
 public class AllAnagrams {
+    public static void main(String[] args){
+        AllAnagramSolution s = new AllAnagramSolution();
+        System.out.println(s.findAnagrams("cbaebabacd", "abc"));
+    }
 }
