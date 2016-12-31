@@ -18,13 +18,23 @@ class HappyNumberSolution {
     }
 
     // O(n) Space Complexity
-    public boolean isHappy(int n) {
+    public boolean isHappy2(int n) {
         HashSet<Integer> seen = new HashSet<Integer>();
         int squareSum = calculateSquareSum(n);
         while (seen.add(squareSum) && squareSum != 1) {
             squareSum = calculateSquareSum(squareSum);
         }
         return (squareSum == 1);
+    }
+
+    // O(1) Space
+    public boolean isHappy(int n) {
+        int slow = n, fast = n;
+        do {
+            slow = calculateSquareSum(slow);
+            fast = calculateSquareSum(calculateSquareSum(fast));
+        } while (slow != fast);
+        return (slow == 1);
     }
 }
 
