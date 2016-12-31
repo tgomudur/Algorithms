@@ -1,5 +1,6 @@
 package HashMap;
 
+import java.util.HashSet;
 /**
  * Created by tharun on 12/30/16.
  * Problem description: https://leetcode.com/problems/happy-number/
