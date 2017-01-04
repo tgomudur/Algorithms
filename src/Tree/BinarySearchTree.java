@@ -298,4 +298,21 @@ public class BinarySearchTree<T extends Comparable<T>>{
         zigzagLevelOrder(root.getRight(), paths, currentLevel + 1);
         return paths;
     }
+
+//    public BinarySearchTreeNode<T> findClosestNode(T value) {
+//        if (root == null) return null;
+//        else return search(findClosestNodeUtil(root, value, 0, -1));
+//    }
+//
+//    private T findClosestNodeUtil(BinarySearchTreeNode<T> root, T value, T minDist, T goal) {
+//        if (root == null) return goal;
+//        if ((root.getData() - value) < minDist) {
+//            minDist = root.getData() - value;
+//            goal = root.getData();
+//        }
+//
+//        if (root.getData() < target) findClosestNodeUtil(root.left, value, minDist, goal);
+//        else findClosestNodeUtil(root.right, value, minDist, goal);
+//        return goal;
+//    }
 }

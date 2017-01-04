@@ -55,6 +55,8 @@ public class BinarySearchTreeMain {
 
         List<List<Integer>> paths = bst.zigzagLevelOrder(bst.root);
 
+//        System.out.println(bst.findClosestNode(6));
+
         for (List<Integer> path : paths) {
             System.out.println(path);
         }
