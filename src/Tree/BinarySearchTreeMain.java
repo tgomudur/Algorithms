@@ -61,5 +61,6 @@ public class BinarySearchTreeMain {
             System.out.println(path);
         }
 
+        System.out.println(bst.findLCA(2, 5).getData());
     }
 }

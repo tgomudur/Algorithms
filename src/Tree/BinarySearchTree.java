@@ -315,4 +315,19 @@ public class BinarySearchTree<T extends Comparable<T>>{
 //        else findClosestNodeUtil(root.right, value, minDist, goal);
 //        return goal;
 //    }
+
+    public BinarySearchTreeNode<T> findLCA(T p, T q) {
+        return findLCA(this.root, search(p), search(q));
+    }
+    private BinarySearchTreeNode<T> findLCA(BinarySearchTreeNode<T> root, BinarySearchTreeNode<T> p,BinarySearchTreeNode<T> q) {
+        if (root == null) return root;
+
+        if (p.getData().compareTo(root.getData()) < 0 && q.getData().compareTo(root.getData()) < 0)
+            return findLCA(root.getLeft(), p, q);
+
+        if (p.getData().compareTo(root.getData()) > 0 && q.getData().compareTo(root.getData()) > 0)
+            return findLCA(root.getRight(), p, q);
+
+        return root;
+    }
 }
