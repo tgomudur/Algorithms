@@ -6,20 +6,20 @@ package Tree;
  */
 public class MaxPathSum {
     int maxSum = Integer.MIN_VALUE;
-    public int maxPathSum(TreeNode root) {
+    public int maxPathSum(BinarySearchTreeNode<Integer> root) {
         maxPathSumUtil(root);
         return maxSum;
     }
 
-    public int maxPathSumUtil(TreeNode root) {
+    public int maxPathSumUtil(BinarySearchTreeNode<Integer> root) {
         if (root == null) return 0;
 
-        int left = Math.max(maxPathSumUtil(root.left), 0);
-        int right = Math.max(maxPathSumUtil(root.right), 0);
+        int left = Math.max(maxPathSumUtil(root.getLeft()), 0);
+        int right = Math.max(maxPathSumUtil(root.getRight()), 0);
 
-        maxSum = Math.max(maxSum, left + right + root.val);
+        maxSum = Math.max(maxSum, left + right + root.getData());
 
-        return root.val + Math.max(left, right);
+        return root.getData() + Math.max(left, right);
 
     }
 }
