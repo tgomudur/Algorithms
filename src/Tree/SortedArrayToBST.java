@@ -15,8 +15,8 @@ public class SortedArrayToBST {
 
         int mid = (left + right)/2;
         BinarySearchTreeNode<Integer> root = new BinarySearchTreeNode<Integer>(nums[mid]);
-        root.left = sortedArrayToBSTHelper(nums, left, mid - 1);
-        root.right = sortedArrayToBSTHelper(nums, mid + 1, right);
+        root.setLeft(sortedArrayToBSTHelper(nums, left, mid - 1));
+        root.setRight(sortedArrayToBSTHelper(nums, mid + 1, right));
 
         return root;
     }
