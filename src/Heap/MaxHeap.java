@@ -8,6 +8,7 @@ import java.util.*;
 class MaxHeapTest {
     public void getKSmallest(int[] arr, int k) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(k, Collections.reverseOrder());
+
         for (int item : arr) {
             if (maxHeap.size() < k) maxHeap.offer(item);
             else {

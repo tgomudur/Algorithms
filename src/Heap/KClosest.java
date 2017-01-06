@@ -51,7 +51,7 @@ public class KClosest {
         for (int i = 0; i < 10; i++){
             points[i] = new Point(i, i);
         }
-        s.findKClosest(points , 5);
+        s.findKClosest(points , 8);
     }
 }
 
