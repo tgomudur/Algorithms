@@ -4,6 +4,9 @@ package HashMap;
  * Created by tharun on 1/10/17.
  * Problem description: https://leetcode.com/problems/fraction-to-recurring-decimal/
  */
+import java.util.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 class RecurringDecimalSolution {
     public String fractionToDecimal(int numerator, int denominator) {
@@ -37,4 +40,10 @@ class RecurringDecimalSolution {
 }
 
 public class RecurringDecimal {
+    @Test
+    public void testFractionToDecimal() {
+        RecurringDecimalSolution s = new RecurringDecimalSolution();
+        assertEquals("0.(012)", s.fractionToDecimal(4, 333));
+        assertEquals("0.0000000004656612873077392578125", s.fractionToDecimal(-1, -2147483648));
+    }
 }
