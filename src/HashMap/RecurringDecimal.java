@@ -2,6 +2,7 @@ package HashMap;
 
 /**
  * Created by tharun on 1/10/17.
+ * Problem description: https://leetcode.com/problems/fraction-to-recurring-decimal/
  */
 
 class RecurringDecimalSolution {

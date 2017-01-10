@@ -2,6 +2,7 @@ package HashMap;
 
 /**
  * Created by tharun on 1/9/17.
+ * Problem description: https://leetcode.com/problems/design-twitter/
  */
 
 import java.util.*;
