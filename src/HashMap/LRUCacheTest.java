@@ -52,7 +52,7 @@ class DoublyLinkedList {
     }
 }
 
-public class LRUCache {
+class LRUCache {
     DoublyLinkedList list;
     HashMap<Integer, DLLNode> cache;
     int numOfElements;
@@ -72,7 +72,7 @@ public class LRUCache {
             list.moveToFront(node);
             return node.value;
         }
-        return -1;
+        return -1; // raise exception instead;
     }
 
     public void set(int key, int value) {
@@ -97,5 +97,21 @@ public class LRUCache {
     }
 }
 
-public class LRUCache {
+public class LRUCacheTest {
+    @Test
+    public void testKeyNotFound() {
+        LRUCache cache = new LRUCache(1);
+        assertEquals(-1, cache.get(1));
+    }
+
+    @Test
+    public void testLRUCache() {
+        LRUCache cache = new LRUCache(2);
+        cache.set(1, 2);
+        cache.set(2, 1);
+        assertEquals(2, cache.get(1));
+
+        cache.set(3, 2);
+        assertEquals(-1, cache.get(2));
+    }
 }
