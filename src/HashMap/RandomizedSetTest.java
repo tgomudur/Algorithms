@@ -6,6 +6,10 @@ package HashMap;
  * No duplicates allowed.
  */
 
+import java.util.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
 class RandomizedSet {
     HashMap<Integer, Integer> map;
     ArrayList<Integer> keyList;
@@ -55,16 +59,24 @@ class RandomizedSet {
 public class RandomizedSetTest {
     @Test
     public void testInsert() {
-
+        RandomizedSet rs = new RandomizedSet();
+        assertTrue(rs.insert(2));
+        assertTrue(rs.insert(1));
+        assertTrue(!rs.insert(2));
     }
 
     @Test
     public void testRemove() {
-
+        RandomizedSet rs = new RandomizedSet();
+        assertTrue(!rs.remove(100));
+        assertTrue(rs.insert(100));
+        assertTrue(rs.remove(100));
     }
 
     @Test
     public void testGetRandom() {
-
+        RandomizedSet rs = new RandomizedSet();
+        assertTrue(rs.insert(100));
+        assertEquals(100, rs.getRandom());
     }
 }
