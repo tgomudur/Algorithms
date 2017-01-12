@@ -4,6 +4,8 @@ package Backtrack;
  * Created by tharun on 1/11/17.
  * Problem description : https://leetcode.com/problems/sudoku-solver/
  */
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 class SudokuSolverSolution {
     public boolean isValidGuess(char[][] board, int i, int j, char guess) {
@@ -29,7 +31,7 @@ class SudokuSolverSolution {
         solve(board);
     }
 
-    public boolean solveSudoku(char[][] board) {
+    public boolean solve(char[][] board) {
         for (int  i = 0; i < board.length;  i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == '.') {
@@ -45,5 +47,26 @@ class SudokuSolverSolution {
             }
         }
         return true;
+    }
+}
+
+public class SudokuSolver {
+    @Test
+    public void testSudokuSolver() {
+        SudokuSolverSolution solver = new SudokuSolverSolution();
+        String[] board = {"..9748...","7........",".2.1.9...","..7...24.",".64.1.59.",".98...3..","...8.3.2.","........6","...2759.."};
+        String[] expected = {"519748632","783652419","426139875","357986241","264317598","198524367","975863124","832491756","641275983"};
+
+        char[][] inputBoard = new char[9][9];
+        char[][] expectedBoard = new char[9][9];
+        for (int i = 0; i < 9; i++) {
+            inputBoard[i] = board[i].toCharArray();
+            expectedBoard[i] = expected[i].toCharArray();
+        }
+
+        solver.solveSudoku(inputBoard);
+
+        for (int i = 0; i < 9; i++)
+            assertArrayEquals(expectedBoard[i], inputBoard[i]);
     }
 }
