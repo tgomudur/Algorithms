@@ -6,6 +6,8 @@ import java.util.Random;
 
 /**
  * Created by tharun on 1/13/17.
+ * Problem description : https://leetcode.com/problems/insert-delete-getrandom-o1/
+ * No duplicates allowed.
  */
 
 public class RandomizedSet {
