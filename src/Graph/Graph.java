@@ -1,8 +1,11 @@
 package Graph;
 
 /**
- * Created by incyphae10 on 12/8/16.
+ * Created by tharun on 12/8/16.
  */
-public class Graph {
 
+public interface Graph<Vertex> {
+    public boolean addEdge();
+    public boolean removeEdge();
+    public Set<Vertex> getAdjacentVertices();
 }
