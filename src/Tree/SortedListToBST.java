@@ -5,50 +5,53 @@ package Tree;
  * Problem description: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
  */
 
+import List.SinglyLinkedList.*;
+import java.util.*;
+
 public class SortedListToBST {
     // Time : O(n) Space : O(1)
-    public TreeNode sortedListToBST(ListNode head) {
+    public BinarySearchTreeNode<Integer> sortedListToBST(SinglyLinkedListNode<Integer> head) {
         if (head == null) return null;
         return toBST(head, null);
     }
 
-    public TreeNode toBST(ListNode head, ListNode tail) {
-        ListNode fast = head;
-        ListNode slow = head;
+    public BinarySearchTreeNode<Integer> toBST(SinglyLinkedListNode<Integer> head, SinglyLinkedListNode<Integer> tail) {
+        SinglyLinkedListNode<Integer> fast = head;
+        SinglyLinkedListNode<Integer> slow = head;
         if (slow == tail) return null;
 
-        while (fast != tail && fast.next != tail) {
-            fast = fast.next.next;
-            slow = slow.next;
+        while (fast != tail && fast.getNext() != tail) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
         }
 
-        TreeNode root = new TreeNode(slow.val);
-        root.left = toBST(head, slow);
-        root.right = toBST(slow.next, tail);
+        BinarySearchTreeNode<Integer> root = new BinarySearchTreeNode<Integer>(slow.getData());
+        root.setLeft(toBST(head, slow));
+        root.setRight(toBST(slow.getNext(), tail));
         return root;
     }
 
     // Using hashmap: Time: O(n) Space: O(n)
-    public TreeNode sortedListToBSTUsingMap(ListNode head) {
+    public BinarySearchTreeNode<Integer> sortedListToBSTUsingMap(SinglyLinkedListNode<Integer> head) {
          if (head == null) return null;
 
-         HashMap<Integer, ListNode> map = new HashMap<>();
-         ListNode current = head;
+         HashMap<Integer, SinglyLinkedListNode<Integer>> map = new HashMap<>();
+         SinglyLinkedListNode<Integer> current = head;
          int i = 0;
          while (current != null) {
              map.put(i++, current);
-             current = current.next;
+             current = current.getNext();
          }
          return toBST(map, 0, map.size() - 1);
      }
 
-     public TreeNode toBST(HashMap<Integer, ListNode> map, int left, int right) {
+     public BinarySearchTreeNode<Integer> toBST(HashMap<Integer, SinglyLinkedListNode<Integer>> map, int left, int right) {
          if (left > right) return null;
 
          int mid = (left + right)/2;
-         TreeNode root = new TreeNode(map.get(mid).val);
-         root.left = toBST(map, left, mid - 1);
-         root.right = toBST(map, mid + 1, right);
+         BinarySearchTreeNode<Integer> root = new BinarySearchTreeNode<Integer>(map.get(mid).getData());
+         root.setLeft(toBST(map, left, mid - 1));
+         root.setRight(toBST(map, mid + 1, right));
          return root;
      }
 }
