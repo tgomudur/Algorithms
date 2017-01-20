@@ -41,27 +41,29 @@ public class DirectedGraph implements Graph<Vertex> {
 
     public String doBFS(Vertex start) {
         System.out.println(adjList);
-        List<Vertex> q = new LinkedList<Vertex>();
+        LinkedList<Vertex> q = new LinkedList<Vertex>();
         Set<Vertex> visited = new HashSet<Vertex>();
         StringBuilder sb = new StringBuilder();
 
-        if (!adjList.containsKey(start)) return "";
+        if (!adjList.containsKey(start)) {
+            throw new IllegalArgumentException("Start Vertex Not Found");
+        }
 
-        q.addAll(adjList.get(start));
-        visited.add(q.get(0));
-        int count = 0;
+        q.add(start);
+
         while (!q.isEmpty()) {
-            Vertex child = q.get(0);
-            q.remove(0);
+            Vertex child = q.poll();
+
             sb.append(child.getLabel());
+            visited.add(child);
 
             if (!adjList.containsKey(child)) continue;
             for (Vertex v : adjList.get(child)) {
-                if (!visited.contains(child))
-                    q.add(child);
+                if (!visited.contains(v)) {
+                    q.offer(v);
+                }
             }
-            if (count > 10) break;
-            count++;
+
         }
         return sb.toString();
     }
