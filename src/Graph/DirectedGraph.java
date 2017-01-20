@@ -48,10 +48,11 @@ public class DirectedGraph implements Graph<Vertex> {
         if (!adjList.containsKey(start)) return "";
 
         q.addAll(adjList.get(start));
+        visited.add(q.get(0));
         int count = 0;
         while (!q.isEmpty()) {
-            Vertex child = q.get(q.size() - 1);
-            q.remove(q.size() - 1);
+            Vertex child = q.get(0);
+            q.remove(0);
             sb.append(child.getLabel());
 
             if (!adjList.containsKey(child)) continue;
