@@ -9,10 +9,14 @@ public class Edge {
     Vertex destination;
     double weight;
 
-    public Edge(Vertex from, Vertex to, double weight = 1.0) {
+    public Edge(Vertex from, Vertex to, double weight) {
         this.source = from;
         this.destination = to;
         this.weight = weight;
+    }
+
+    public Edge(Vertex from, Vertex to) {
+        this(from, to, 1.0);
     }
 
     public Vertex getSource() {

@@ -9,6 +9,14 @@ public class Vertex {
     String label;
     double weight;
 
+    public Vertex(String label, double weight) {
+        this.label = label;
+        this.weight = weight;
+    }
+
+    public Vertex(String label) {
+        this(label, 1.0);
+    }
 
     public String getLabel() {
         return label;
@@ -18,7 +26,7 @@ public class Vertex {
         this.label = label;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -28,6 +36,12 @@ public class Vertex {
 
     @Override
     public int hashCode() {
-        return lebel.hashCode();
+        return label.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return label;
+    }
+
 }
