@@ -2,6 +2,7 @@ package Graph;
 
 /**
  * Created by tharun on 1/20/17.
+ * Problem : Check if path exists between two nodes in a graph
  */
 
 import java.util.*;
