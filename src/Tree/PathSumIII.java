@@ -18,7 +18,7 @@ public class PathSumIII {
 
     public int pathSumHelper(TreeNode root, int sum, int target, HashMap<Integer, Integer> preSum) {
         if (root == null) return 0;
-        
+
         // Update prefixSum
         sum += root.val;
         // Get the number of valid path, ended by the current node
