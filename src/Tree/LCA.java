@@ -5,8 +5,15 @@ package Tree;
  * Problem description: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
 public class LCA {
-    public int findLCAinBST(BinarySearchTreeNode<Integer> root) {
+    public BinarySearchTreeNode<Integer>  findLCAinBST(BinarySearchTreeNode<Integer> root) {
+        if (root == null) return null;
 
+        if (p.val > root.val && q.val > root.val)
+            return lowestCommonAncestor(root.right, p, q);
+        if (p.val < root.val && q.val < root.val)
+            return lowestCommonAncestor(root.left, p, q);
+
+        return root;
     }
 
     public int findLCAinBT(BinarySearchTreeNode<Integer> root) {
