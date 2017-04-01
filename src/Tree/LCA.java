@@ -6,17 +6,18 @@ package Tree;
  */
 public class LCA {
     public BinarySearchTreeNode<Integer>  findLCAinBST(BinarySearchTreeNode<Integer> root) {
-        if (root == null) return null;
-
-        if (p.val > root.val && q.val > root.val)
-            return lowestCommonAncestor(root.right, p, q);
-        if (p.val < root.val && q.val < root.val)
-            return lowestCommonAncestor(root.left, p, q);
-
-        return root;
+//        if (root == null) return null;
+//
+//        if (p.val > root.val && q.val > root.val)
+//            return lowestCommonAncestor(root.right, p, q);
+//        if (p.val < root.val && q.val < root.val)
+//            return lowestCommonAncestor(root.left, p, q);
+//
+//        return root;
+        return null;
     }
 
     public int findLCAinBT(BinarySearchTreeNode<Integer> root) {
-
+        return 0;
     }
 }

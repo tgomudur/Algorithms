@@ -13,7 +13,7 @@ public class SumOfLeftLeaves {
 
     public int sumOfLeftLeavesHelper(BinarySearchTreeNode<Integer> root, boolean isLeftChild) {
         if (root == null) return 0;
-        if (isLeftChild && root.left ==  null && root.right == null) return root.val;
+        if (isLeftChild && root.left ==  null && root.right == null) return root.getData();
 
         return sumOfLeftLeavesHelper(root.left, true) + sumOfLeftLeavesHelper(root.right, false);
     }

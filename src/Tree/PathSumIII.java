@@ -4,10 +4,11 @@ package Tree;
  * Created by tharun on 1/23/17.
  * Problem description : https://leetcode.com/problems/path-sum-iii/
  */
+import java.util.*;
 
 public class PathSumIII {
     // Time Complexity : O(n) Space Complexity : O(n)
-    public int findPathSum(TreeNode root, int sum) {
+    public int findPathSum(BinarySearchTreeNode<Integer> root, int sum) {
         if (root == null) return 0;
 
         // Map <prefixSum, Number of paths to reach this sum>
@@ -16,11 +17,11 @@ public class PathSumIII {
         return pathSumHelper(root, 0, sum, preSum);
     }
 
-    public int pathSumHelper(TreeNode root, int sum, int target, HashMap<Integer, Integer> preSum) {
+    public int pathSumHelper(BinarySearchTreeNode<Integer> root, int sum, int target, HashMap<Integer, Integer> preSum) {
         if (root == null) return 0;
 
         // Update prefixSum
-        sum += root.val;
+        sum += root.getData();
         // Get the number of valid path, ended by the current node
         int result = preSum.getOrDefault(sum - target, 0);
 
