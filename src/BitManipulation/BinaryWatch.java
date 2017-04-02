@@ -40,6 +40,7 @@ public class BinaryWatch {
                 }
             }
         }
+        return result;
     }
 
     public int countBits(int num) {
