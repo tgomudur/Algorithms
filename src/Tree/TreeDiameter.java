@@ -2,14 +2,14 @@ package Tree;
 
 /**
  * Created by tharun on 4/1/17.
- *
+ * https://leetcode.com/problems/diameter-of-binary-tree/#/description
  */
 public class TreeDiameter {
     public int findHeight(BinarySearchTreeNode<Integer> root) {
         if (root == null)
             return 0;
 
-        return Math.max(findHeight(root.getLeft()), findHeight(root.getRight())) + 1
+        return Math.max(findHeight(root.getLeft()), findHeight(root.getRight())) + 1;
     }
 
     public int findDiameter(BinarySearchTreeNode<Integer> root, int maxDiameter) {
