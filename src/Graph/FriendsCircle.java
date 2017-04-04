@@ -27,6 +27,7 @@ public class FriendsCircle {
                 dfs(M, visited, u);
             }
         }
+        return friendsCircleCount;
     }
 
     public void dfs(int[][] M, boolean[] visited, int u) {

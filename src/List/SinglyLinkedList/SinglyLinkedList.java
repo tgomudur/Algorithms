@@ -124,4 +124,14 @@ public class SinglyLinkedList<T> {
             }
         }
     }
+
+    // Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+    // https://leetcode.com/problems/delete-node-in-a-linked-list/#/description
+    public void delete(SinglyLinkedListNode<T> node) {
+        SinglyLinkedListNode<T> prev = node;
+        SinglyLinkedListNode<T> current = node.next;
+
+        prev.setData(current.getData());
+        prev.setNext(current.getNext());
+    }
 }
