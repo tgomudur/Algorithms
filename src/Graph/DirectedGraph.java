@@ -6,9 +6,9 @@ package Graph;
 
 import java.util.*;
 
-public class DirectedGraph implements Graph<Vertex> {
+public class DirectedGraph implements Graph {
     Vertex start;
-    HashMap<Vertex, Set<Vertex>> adjList;
+    HashMap<Vertex, List<Edge>> adjList;
 
     DirectedGraph(Vertex start) {
         this.start = start;
@@ -19,9 +19,9 @@ public class DirectedGraph implements Graph<Vertex> {
         Vertex source = edge.getSource();
         Vertex dest = edge.getDestination();
 
-        if (!adjList.containsKey(source)) adjList.put(source, new HashSet<Vertex>());
+        if (!adjList.containsKey(source)) adjList.put(source, new ArrayList<Edge>());
 
-        adjList.get(source).add(dest);
+        adjList.get(source).add(edge);
         return true;
     }
 
@@ -35,7 +35,7 @@ public class DirectedGraph implements Graph<Vertex> {
         return true;
     }
 
-    public Set<Vertex> getAdjacentVertices(Vertex v) {
+    public List<Edge> getAdjacentVertices(Vertex v) {
         return adjList.get(v);
     }
 
@@ -58,9 +58,9 @@ public class DirectedGraph implements Graph<Vertex> {
             visited.add(child);
 
             if (!adjList.containsKey(child)) continue;
-            for (Vertex v : adjList.get(child)) {
-                if (!visited.contains(v)) {
-                    q.offer(v);
+            for (Edge v : adjList.get(child)) {
+                if (!visited.contains(v.getDestination())) {
+                    q.offer(v.getDestination());
                 }
             }
 

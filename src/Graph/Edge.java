@@ -1,9 +1,5 @@
 package Graph;
 
-/**
- * Created by tharun on 12/8/16.
- */
-
 public class Edge {
     Vertex source;
     Vertex destination;

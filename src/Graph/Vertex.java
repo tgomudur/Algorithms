@@ -1,17 +1,16 @@
 package Graph;
 
-/**
- * Created by tharun on 12/8/16.
- */
-import java.util.*;
-
-public class Vertex {
+public class Vertex implements Comparable<Vertex>{
     String label;
     double weight;
+    Vertex parent;
+    double minDistance;
 
     public Vertex(String label, double weight) {
         this.label = label;
         this.weight = weight;
+        this.parent = null;
+        this.minDistance = Double.POSITIVE_INFINITY;
     }
 
     public Vertex(String label) {
@@ -44,4 +43,13 @@ public class Vertex {
         return label;
     }
 
+    @Override
+    public int compareTo(Vertex v) {
+        if (minDistance < v.minDistance)
+            return -1;
+        else if (minDistance == v.minDistance)
+            return 0;
+        else
+            return 1;
+    }
 }

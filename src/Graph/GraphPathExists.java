@@ -5,9 +5,12 @@ package Graph;
  * Problem : Check if path exists between two nodes in a graph
  */
 
-import java.util.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+
+import static org.junit.Assert.assertEquals;
 
 class GraphPathExistsSolution {
     public boolean pathExists(DirectedGraph graph, Vertex source, Vertex dest) {
@@ -20,9 +23,9 @@ class GraphPathExistsSolution {
             visited.add(child);
             if (child.equals(dest)) return true;
 
-            for (Vertex v : graph.getAdjacentVertices(child)) {
-                if (!visited.contains(v))
-                    queue.add(v);
+            for (Edge v : graph.getAdjacentVertices(child)) {
+                if (!visited.contains(v.getDestination()))
+                    queue.add(v.getDestination());
             }
         }
         return false;

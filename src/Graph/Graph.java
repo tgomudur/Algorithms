@@ -4,10 +4,10 @@ package Graph;
  * Created by tharun on 12/8/16.
  */
 
-import java.util.Set;
+import java.util.List;
 
-public interface Graph<Vertex> {
+public interface Graph {
     public boolean addEdge(Edge e);
     public boolean removeEdge(Edge e);
-    public Set<Vertex> getAdjacentVertices(Vertex v);
+    public List<Edge> getAdjacentVertices(Vertex v);
 }
