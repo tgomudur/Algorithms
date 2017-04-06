@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class UndirectedGraph implements Graph {
-    Vertex start;
     HashMap<Vertex, List<Edge>> adjList;
 
     public UndirectedGraph() {
@@ -16,10 +15,8 @@ public class UndirectedGraph implements Graph {
     @Override
     public boolean addEdge(Edge e) {
         Vertex source = e.getSource();
-        Vertex dest = e.getDestination();
-
-        if (!adjList.containsKey(source)) adjList.put(source, new ArrayList<Edge>());
-
+        if (!adjList.containsKey(source))
+            adjList.put(source, new ArrayList<>());
         adjList.get(source).add(e);
         return true;
     }
@@ -39,13 +36,12 @@ public class UndirectedGraph implements Graph {
     @Override
     public List<Edge> getAdjacentVertices(Vertex v) {
         if (!adjList.containsKey(v))
-            adjList.put(v, new ArrayList<Edge>());
+            adjList.put(v, new ArrayList<>());
         return adjList.get(v);
     }
 
     public void computePaths(Vertex source) {
         PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
-        int distance = 0;
         Vertex current;
         source.minDistance = 0;
         queue.add(source);
@@ -55,7 +51,6 @@ public class UndirectedGraph implements Graph {
             if (!adjList.containsKey(current))
                 continue;
             for (Edge child : adjList.get(current)) {
-                System.out.println("inside");
                 Vertex v = child.getDestination();
                 double distanceThroughCurrent = child.getWeight() + current.minDistance;
                 if (distanceThroughCurrent < v.minDistance) {
@@ -68,13 +63,15 @@ public class UndirectedGraph implements Graph {
         }
     }
 
-    public int findShortestPathDistance(Vertex source, Vertex dest) {
-        int distance = 0;
-        Vertex current = dest;
-        while (current != null) {
-            distance += 6;
-            current = current.parent;
-        }
-        return distance;
+    public int findShortestPathDistance(Vertex dest) {
+
+        return (Double.compare(dest.minDistance, Double.POSITIVE_INFINITY) == 0)? -1 : (int) dest.minDistance;
+// int distance = 0;
+//        Vertex current = dest;
+//        while (current != null) {
+//            distance += 6;
+//            current = current.parent;
+//        }
+//        return distance;
     }
 }

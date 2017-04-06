@@ -80,7 +80,7 @@ public class ShortestReach {
 //            e.printStackTrace();
 //        }
         try {
-            File file = new File("data/Graph/ShortestReach/Input/Test1.txt");
+            File file = new File("data/Graph/ShortestReach/Input/Test2.txt");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 int q = sc.nextInt();
@@ -92,9 +92,10 @@ public class ShortestReach {
                     for (int j = 0; j < m; j++) {
                         String node1 = "" + sc.nextInt();
                         String node2 = "" + sc.nextInt();
-                        vertices.put(node1, new Vertex(node1));
-                        vertices.put(node2, new Vertex(node2));
+                        vertices.put(node1, vertices.getOrDefault(node1, new Vertex(node1)));
+                        vertices.put(node2, vertices.getOrDefault(node2, new Vertex(node2)));
                         graph.addEdge(new Edge(vertices.get(node1), vertices.get(node2), 6));
+                        graph.addEdge(new Edge(vertices.get(node2), vertices.get(node1), 6));
                     }
                     int startNode = sc.nextInt();
                     Vertex source = vertices.get("" + startNode);
@@ -105,7 +106,7 @@ public class ShortestReach {
                     for (int endNode = 1; endNode <= n; endNode++)
                         if (endNode != startNode) {
                             Vertex dest = vertices.get("" + endNode);
-                            sb.append(graph.findShortestPathDistance(source, dest) + " ");
+                            sb.append(graph.findShortestPathDistance(dest) + " ");
                         }
                     System.out.println(sb.toString().trim());
                 }

@@ -2,19 +2,14 @@ package Graph;
 
 public class Vertex implements Comparable<Vertex>{
     String label;
-    double weight;
+//    double weight;
     Vertex parent;
     double minDistance;
 
-    public Vertex(String label, double weight) {
+    public Vertex(String label) {
         this.label = label;
-        this.weight = weight;
         this.parent = null;
         this.minDistance = Double.POSITIVE_INFINITY;
-    }
-
-    public Vertex(String label) {
-        this(label, 1.0);
     }
 
     public String getLabel() {
@@ -25,13 +20,6 @@ public class Vertex implements Comparable<Vertex>{
         this.label = label;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setLabel(double weight) {
-        this.weight = weight;
-    }
 
     @Override
     public int hashCode() {
@@ -45,11 +33,12 @@ public class Vertex implements Comparable<Vertex>{
 
     @Override
     public int compareTo(Vertex v) {
-        if (minDistance < v.minDistance)
-            return -1;
-        else if (minDistance == v.minDistance)
-            return 0;
-        else
-            return 1;
+        return Double.compare(this.minDistance, v.minDistance);
+//        if (minDistance < v.minDistance)
+//            return -1;
+//        else if (minDistance == v.minDistance)
+//            return 0;
+//        else
+//            return 1;
     }
 }
