@@ -4,14 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * <p>Contacts App Using Trie. HackerRank</p>
+ * https://www.hackerrank.com/challenges/ctci-contacts?h_r=next-challenge&h_v=zen
+ */
+
 public class ContactsApp {
     public static class TrieNode {
         char letter;
+        int wordsBelowCount;
         HashMap<Character, TrieNode> children;
         boolean isWord;
 
         public TrieNode(char letter) {
             this.letter = letter;
+            this.wordsBelowCount = 0;
             this.children = new HashMap<>();
             this.isWord = false;
         }
@@ -36,7 +43,7 @@ public class ContactsApp {
                 }
 
                 current = current.children.get(c);
-
+                current.wordsBelowCount = 0;
                 if (i == word.length() - 1)
                     current.isWord = true;
             }
@@ -44,8 +51,6 @@ public class ContactsApp {
 
         }
 
-        // Currently times out for large inputs. Working on optimized solution.
-        // Store all count of all prefixes in the node
         public int findPartial(String prefix) {
             TrieNode current = start;
             for (int i = 0; i < prefix.length(); i++) {
@@ -57,8 +62,12 @@ public class ContactsApp {
                 }
             }
 
-            return dfs(current, 0);
+            // Correct but inefficient
+            // return dfs(current, 0);
 
+            // By maintaining this field, we can save time on each query by using this extra space
+            // on each node.
+            return current.wordsBelowCount;
         }
 
         public int dfs(TrieNode current, int count) {
