@@ -28,3 +28,5 @@ hs_err_pid*
 .idea/inspectionProfiles/
 .idea/workspace.xml
 out/
+/src/CodeJam2017/
+/src/CodeJam2017/*.java
