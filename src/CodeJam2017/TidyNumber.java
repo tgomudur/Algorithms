@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Problem2 {
+public class TidyNumber {
     public static boolean isTidy(long num) {
         long n = num;
         long prevDigit = Integer.MAX_VALUE;
@@ -26,6 +26,8 @@ public class Problem2 {
         return String.valueOf(0);
     }
 
+    // Incorrect on the large dataset.
+    // TODO: Figure out the problem
     public static String solveProblem2Efficient(String num) {
         if (num.length() == 1)
             return num;
@@ -60,7 +62,7 @@ public class Problem2 {
 
     public static void main(String[] args) {
         try {
-            File file = new File("data/CodeJam2017/Problem2/Input/B-large.in");
+            File file = new File("data/CodeJam2017/TidyNumber/Input/B-large.in");
 
             Scanner sc = new Scanner(file);
             int n = sc.nextInt();
@@ -74,7 +76,7 @@ public class Problem2 {
                 sb.append("Case #" + caseNum + ": " +solveProblem2Efficient(input) + "\n");
                 caseNum++;
             }
-            PrintWriter writer = new PrintWriter("data/CodeJam2017/Problem2/Output/B-large.out", "UTF-8");
+            PrintWriter writer = new PrintWriter("data/CodeJam2017/TidyNumber/Output/B-large.out", "UTF-8");
             writer.write(sb.toString());
             writer.close();
             System.out.println(sb.toString());

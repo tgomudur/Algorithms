@@ -3,10 +3,9 @@ package CodeJam2017;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
-public class Problem3 {
+public class BathroomStalls {
     public static int getNextStall(String[] stalls) {
         int left = 0;
         int right = stalls.length - 1;
@@ -85,7 +84,7 @@ public class Problem3 {
 
     public static void main(String[] args) {
         try {
-            File file = new File("data/CodeJam2017/Problem3/Input/Test.in");
+            File file = new File("data/CodeJam2017/BathroomStalls/Input/Test.in");
 
             Scanner sc = new Scanner(file);
             int n = sc.nextInt();
@@ -98,7 +97,7 @@ public class Problem3 {
                 sb.append("Case #" + caseNum + ": " + solveProblem3(numStalls, k) + "\n");
                 caseNum++;
             }
-            PrintWriter writer = new PrintWriter("data/CodeJam2017/Problem3/Output/Test.out", "UTF-8");
+            PrintWriter writer = new PrintWriter("data/CodeJam2017/BathroomStalls/Output/Test.out", "UTF-8");
             writer.write(sb.toString());
             writer.close();
             // System.out.println(sb.toString());

@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Created by tharun on 4/7/17.
  *
  */
-public class Problem1 {
+public class PancakeRevenge {
     public static void flipBits(int[] pancakes, int startIndex, int k) {
         for (int i = startIndex; i < startIndex + k && i < pancakes.length; i++) {
             pancakes[i] = (pancakes[i] == 1)? 0 : 1;
@@ -45,7 +45,7 @@ public class Problem1 {
     }
     public static void main(String[] args) {
         try {
-            File file = new File("data/CodeJam2017/Problem1/Input/A-large.in");
+            File file = new File("data/CodeJam2017/PancakeRevenge/Input/A-large.in");
 
             Scanner sc = new Scanner(file);
             int n = sc.nextInt();
@@ -59,7 +59,7 @@ public class Problem1 {
                 sb.append("Case #" + caseNum + ": " +pancakeSort(inputStr, k) + "\n");
                 caseNum++;
             }
-            PrintWriter writer = new PrintWriter("data/CodeJam2017/Problem1/Output/A-large.out", "UTF-8");
+            PrintWriter writer = new PrintWriter("data/CodeJam2017/PancakeRevenge/Output/A-large.out", "UTF-8");
             writer.write(sb.toString());
             writer.close();
             System.out.println(sb.toString());
