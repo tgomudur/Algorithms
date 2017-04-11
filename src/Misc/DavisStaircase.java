@@ -27,6 +27,22 @@ public class DavisStaircase {
         return count;
     }
 
+    // If choices are only 1 and 2 steps, the sequence is fibonacci.
+    public static int solveEfficient(int n) {
+        if (n == 0 || n == 1)
+            return 1;
+
+        int n1 = 1;
+        int n2 = 1;
+        int sum = 0;
+
+        for (int i = 2; i <= n; i++) {
+            sum = n1 + n2;
+            n1 = n2;
+            n2 = sum;
+        }
+        return sum;
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int s = in.nextInt();

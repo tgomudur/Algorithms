@@ -4,7 +4,8 @@ package Array;
  * <p>Merge Sort: Counting Inversions</p>
  * <a @href = "https://www.hackerrank.com/challenges/ctci-merge-sort"> More info</a>
  */
-import java.io.*;
+
+import java.util.Scanner;
 
 public class MergeSortInversion {
     public static long mergeHalves(int[] arr, int[] temp, int leftStart, int rightEnd) {
