@@ -21,7 +21,7 @@ public class DavisStaircase {
         int count = 0;
 
         for (int stepSize = 1; stepSize <= 3; stepSize++) {
-            count += solveMemoized(n - i, memo);
+            count += solveMemoized(n - stepSize, memo);
             memo[n] = count;
         }
         return count;
