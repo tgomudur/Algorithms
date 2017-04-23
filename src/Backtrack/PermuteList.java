@@ -1,7 +1,8 @@
 package Backtrack;
 
 /**
- * Created by incyphae10 on 4/22/17.
+ * Given a collection of distinct numbers, return all possible permutations.
+ * https://leetcode.com/problems/permutations/#/description
  */
 public class PermuteList {
     public List<List<Integer>> permute(int[] nums) {
