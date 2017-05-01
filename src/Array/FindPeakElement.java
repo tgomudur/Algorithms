@@ -28,6 +28,8 @@ public class FindPeakElement {
         return left;
     }
 
+    // Time : O(n)
+    // Space: O(1)
     public int findPeakElement(int[] nums) {
         int prev = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length - 1; i++) {
