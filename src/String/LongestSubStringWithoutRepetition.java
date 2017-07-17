@@ -13,7 +13,7 @@ class LongestSubStringWithoutRepetitionSolution {
     // Space : O(k) - where k = min(n, m), n - length of string, m - character space size.
     public String findLongestSubstringWithoutRepetition2(String s) {
         int n = s.length();
-        int left = 0, right = 0, maxLength = 0, maxStartIdx;
+        int left = 0, right = 0, maxLength = 0, maxStartIdx = 0;
         // Maps character to position in array
         Map<Character, Integer> map = new HashMap<Character, Integer>();
         while (left < n && right < n) {
@@ -27,6 +27,8 @@ class LongestSubStringWithoutRepetitionSolution {
             map.put(s.charAt(right), right + 1);
             right++;
         }
+
+        return s.substring(maxStartIdx, maxStartIdx + maxLength);
     }
 
     public String findLongestSubstringWithoutRepetition(String s) {

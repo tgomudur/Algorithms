@@ -2,8 +2,12 @@ package String;
 
 /**
  * Created by tharun on 12/15/16.
+ * https://leetcode.com/problems/longest-palindromic-substring/#/description
  */
 class Solution {
+    // Expanding centers
+    // Time : o(n^2)
+    // Space : O(1)
     public String findLongestPalindromicSubString(String inputStr) {
         int n = inputStr.length();
 
@@ -53,7 +57,46 @@ class Solution {
 
     }
 
-    // Using DP
+    // Simplified expanding centers solution
+    public boolean isWithinBounds(String s, int left, int right) {
+        return (s.charAt(left) != '#' && s.charAt(right) != '$');
+    }
+
+    public int expandOutFromCenter(String s, int center, boolean isOdd) {
+        int right = center + 1;
+        int left = (isOdd)? center - 1 : center;
+        int currLen = (isOdd)? 1 : 0;
+        while (isWithinBounds(s, left, right)) {
+            if (s.charAt(left--) == s.charAt(right))
+                currLen += 2;
+            else break;
+        }
+        return currLen;
+    }
+
+    // Time : O(n^2)
+    // Space : O(1)
+    public String findLongestPalindromicSubStringSimplified(String inputStr) {
+        String s = "#" + inputStr + "$";
+        int center = 0, n = s.length();
+        int currLenOdd = 0, currLenEven = 0, maxLen = 1, maxStartIdx = 0;
+        while (center < n) {
+            currLenOdd = expandOutFromCenter(s, center, true);
+            currLenEven = expandOutFromCenter(s, center, false);
+            if (currLenOdd > maxLen) {
+                maxLen = currLenOdd;
+                maxStartIdx = center + currLenOdd/2 - 1;
+            }
+            if (currLenEven > maxLen) {
+                maxLen = currLenEven;
+                maxStartIdx = center + currLenEven/2;
+            }
+            center++;
+        }
+        return inputStr.substring(maxStartIdx, maxStartIdx + maxLen);
+    }
+
+        // Using DP
     public String findLongestPalindromicSubStringDP(String s){
         int n = s.length();
         boolean[][] table = new boolean[n][n];
