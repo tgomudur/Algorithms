@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f40f1bc-909b-4df1-8a69-1d3ea756e8e8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/String/RegexMatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/String/WildCardMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -66,11 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegexMatcher.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RegexMatcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/String/RegexMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
+            <state relative-caret-position="1092">
               <caret line="52" column="122" lean-forward="false" selection-start-line="52" selection-start-column="122" selection-end-line="52" selection-end-column="122" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WildCardMatcher.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/String/WildCardMatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="57" column="29" lean-forward="false" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -100,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/String/LongestSubString.java" />
         <option value="$PROJECT_DIR$/src/String/ZigZagConversion.java" />
         <option value="$PROJECT_DIR$/src/String/RegexMatcher.java" />
+        <option value="$PROJECT_DIR$/src/String/WildCardMatcher.java" />
       </list>
     </option>
   </component>
@@ -616,8 +627,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/String/RegexMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
+        <state relative-caret-position="1092">
           <caret line="52" column="122" lean-forward="false" selection-start-line="52" selection-start-column="122" selection-end-line="52" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/String/WildCardMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="57" column="29" lean-forward="false" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
           <folding />
         </state>
       </provider>
