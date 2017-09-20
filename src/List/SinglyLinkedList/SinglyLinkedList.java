@@ -12,6 +12,10 @@ public class SinglyLinkedList<T> {
         this.numOfElements = 0;
     }
 
+    public SinglyLinkedListNode<T> getHead() {
+        return head;
+    }
+
     public int size() {
         return numOfElements;
     }
