@@ -71,7 +71,7 @@ public class SearchRange {
         result[0] = left;
         right = n - 1;
         while (left < right) {
-            // Making it right baised
+            // Making    -=it right baised
             mid = ((left + right) / 2) + 1;
             if (nums[mid] > target)
                 right = mid - 1;
