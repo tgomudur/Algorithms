@@ -1,5 +1,7 @@
 package Stack;
 
+import java.util.Stack;
+
 /**
  * Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
  * https://leetcode.com/problems/min-stack/#/description
@@ -8,7 +10,7 @@ public class MinStack {
     Stack<Integer> stack;
     int min;
 
-    public Stack() {
+    public MinStack() {
         this.stack = new Stack<>();
         this.min = Integer.MAX_VALUE;
     }
@@ -23,7 +25,7 @@ public class MinStack {
 
     public void pop() {
         if (min == stack.pop())
-            min = stack.pop()
+            min = stack.pop();
     }
 
     public int getMin() {

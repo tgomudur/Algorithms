@@ -1,5 +1,9 @@
 package Backtrack;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 /**
  * Created by incyphae10 on 4/20/17.
  */
@@ -28,16 +32,17 @@ public class GenerateWellFormedParanthesis {
         for (char c : s.toCharArray()) {
             if (c == '(') stack.push(c);
             else {
-                if (stack.isEmpty() || stack.pop() != "(")
+                if (stack.isEmpty() || stack.pop() != '(')
                     return false;
             }
         }
 
-        return stack.isEmpty()
+        return stack.isEmpty();
     }
     // Does not check the entire list of possible strings but only valid candidates
     // Time : O(2^(2n))
     public List<String> generateHelperBackTrack(List<String> result, String s, int openBraceCount, int closeBraceCount, int n) {
+
         if (s.length() == 2*n) {
             result.add(s);
             return result;

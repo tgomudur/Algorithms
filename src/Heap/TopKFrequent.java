@@ -47,7 +47,7 @@ class TopKFrequentSolution {
     }
 
     // Bucket sort approach: Time: O(n). Space: O(n)
-    public List<Integer> topKFrequent2(int[] nums) {
+    public List<Integer> topKFrequent2(int[] nums, int k) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);

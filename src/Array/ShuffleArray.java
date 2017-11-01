@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Random;
+
 /**
  * Shuffle and reset array
  * https://leetcode.com/problems/shuffle-an-array/#/description
@@ -25,6 +27,7 @@ public class ShuffleArray {
             j = random.nextInt(i + 1);
             swap(shuffled, i, j);
         }
+        return shuffled;
     }
 
     public void swap(int[] shuffled, int i, int j) {

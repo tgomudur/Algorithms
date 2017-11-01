@@ -15,6 +15,7 @@ package Tree;
  *
  * https://leetcode.com/problems/populating-next-right-pointers-in-each-node/#/description
  */
+import java.util.*;
 
 class TreeLinkNode {
      TreeLinkNode left;
@@ -38,8 +39,8 @@ public class PopulateNextRight {
         if (root.right != null && root.next != null)
             root.right.next = root.next.left;
 
-        connect(root.left);
-        connect(root.right);
+        connectRecursiveEfficient(root.left);
+        connectRecursiveEfficient(root.right);
 
     }
 

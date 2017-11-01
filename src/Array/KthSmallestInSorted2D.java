@@ -15,6 +15,7 @@ package Array;
  * You may assume k is always valid, 1 ≤ k ≤ n2.
  * https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/#/description
  */
+import java.util.*;
 
 class Element implements Comparable<Element>{
     int row;
@@ -35,7 +36,7 @@ class Element implements Comparable<Element>{
 
 class ElementMinComparator implements Comparator<Element> {
     @Override
-    public int compareTo(Element e1, Element e2) {
+    public int compare(Element e1, Element e2) {
         return e1.val - e2.val;
     }
 }
@@ -51,7 +52,7 @@ public class KthSmallestInSorted2D {
         PriorityQueue<Element> minHeap = new PriorityQueue<>(n, new ElementMinComparator());
 
         // Add first row to heap
-        for (int col = 0; col < n; i++) {
+        for (int col = 0; col < n; col++) {
             minHeap.add(new Element(0, col, matrix[0][col]));
         }
 
@@ -100,13 +101,14 @@ public class KthSmallestInSorted2D {
 
         while (left < right) {
             mid = left + (right - left)/2;
-            numElementsBefore = 0, col = m - 1;
+            numElementsBefore = 0;
+            col = m - 1;
             for (int row = 0; row < n; row++) {
                 while (col >= 0 && matrix[row][col] > mid)
                     col--;
-                numsElementsBefore += col + 1;
+                numElementsBefore += col + 1;
             }
-            if (numsElementsBefore < k) left = mid + 1;
+            if (numElementsBefore < k) left = mid + 1;
             else right = mid;
         }
         return left;

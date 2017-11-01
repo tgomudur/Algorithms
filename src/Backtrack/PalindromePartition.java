@@ -12,6 +12,8 @@ package Backtrack;
  * https://leetcode.com/problems/palindrome-partitioning/#/description
  */
 
+import java.util.*;
+
 public class PalindromePartition {
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();

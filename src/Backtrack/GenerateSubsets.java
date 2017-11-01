@@ -1,5 +1,8 @@
 package Backtrack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given a set of distinct integers, nums, return all possible subsets.
  * Note: The solution set must not contain duplicate subsets.
@@ -33,6 +36,7 @@ public class GenerateSubsets {
             // BackTrack: Remove element added
             currentSubset.remove(currentSubset.size() - 1);
         }
+        return subsets;
     }
 
     public List<List<Integer>> generateSubsetsBitManp(int[] nums) {

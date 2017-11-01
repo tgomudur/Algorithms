@@ -4,6 +4,9 @@ package Backtrack;
  * Given a collection of distinct numbers, return all possible permutations.
  * https://leetcode.com/problems/permutations/#/description
  */
+
+import java.util.*;
+
 public class PermuteList {
     public List<List<Integer>> permute(int[] nums) {
         return permute(new ArrayList<List<Integer>>(), nums, 0, nums.length - 1);

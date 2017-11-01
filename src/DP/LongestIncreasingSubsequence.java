@@ -37,7 +37,7 @@ public class LongestIncreasingSubsequence {
 
     // Time : O(nlogn)
     // Space : O(n)
-    public void findLengthOfLISEfficient(int[] nums) {
+    public int findLengthOfLISEfficient(int[] nums) {
         int lengthOfLIS = 0;
         int n = nums.length;
         if (n != 0) {
@@ -56,11 +56,11 @@ public class LongestIncreasingSubsequence {
         return lengthOfLIS;
     }
 
-    public int binarySearch(int[] arr, int left, int right, int target) {
+    public int binarySearch(int[] nums, int left, int right, int target) {
         int mid;
         while (left < right) {
             mid = (left + right)/2;
-            if (nums[mid] < num)
+            if (nums[mid] < target)
                 left = mid + 1;
             else
                 right = mid;

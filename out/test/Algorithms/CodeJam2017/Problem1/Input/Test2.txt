@@ -1,0 +1,170 @@
+---+-++- 3
++++++ 4
+-+-+- 4
+-+ 2
+-++++++++- 10
+---------- 10
+++++++ 3
+++- 2
++++++++ 7
++-+ 3
++--++++++ 2
+++-+ 2
+-+++-++- 4
+------ 5
++++- 3
+++-- 2
+++-- 3
+-+- 2
+++--+ 2
+++ 2
++--+ 2
++++ 2
+------- 7
++-+-+-+-+ 3
+-+-+ 2
+-+++++++++ 2
+++-+ 3
+-+-----+ 2
+--+-+ 4
+-+++++++-+ 2
+---------- 2
+--- 3
+-+++-++++ 4
++-+- 3
+-+++ 3
++++- 2
++-- 3
+++++++++++ 8
+-++++++ 7
+++-----+ 5
+++- 3
+-- 2
++-+ 2
++-+-+-+ 3
+--+- 2
++-- 2
+---- 2
+-+++++ 5
+-++++++++- 8
+---+ 2
+-++ 3
++--+ 3
+-++- 3
+--++-+++-- 8
+-+-- 3
+--- 2
+-++ 2
+++++ 3
+-+-+ 3
+---+ 3
+--+ 3
+---------- 5
++--- 3
+++---- 4
+++-++----- 3
+--+- 3
+-+- 3
+-++++++++- 2
+-+++ 2
++-+- 2
+--+--- 6
+-++++++++- 9
+------++ 6
++-+-+-+-+- 2
++- 2
++----- 5
+-+++++++-- 2
+--------- 3
++--- 2
+--+ 2
++-++ 2
++-+-+-+-+- 3
++-++ 3
+-+-- 2
+++++++++++ 10
+++++ 2
+-++-+ 2
++++ 3
++--+--++- 2
+--++++--+ 6
+-+-++++-+- 7
++-+-+-+- 3
+---- 3
++++++++- 7
+++++++++ 8
+--++ 2
+-+-+-+-+-+ 2
+-++- 2
+--++ 3
+---------- 3
+
+    public static int countSubStr(String str, String findStr) {
+        int lastIndex = 0;
+        int count = 0;
+
+        while (lastIndex != -1) {
+            lastIndex = str.indexOf(findStr, lastIndex);
+            if (lastIndex != -1) {
+                count++;
+                lastIndex += findStr.length();
+            }
+            // System.out.println(lastIndex);
+        }
+        return count;
+    }
+
+    public static String solveProblem1(String inputStr, int k) {
+        int minusCount = 0;
+        int plusCount = 0;
+        for (char ch : inputStr.toCharArray()) {
+            if(ch == '-') minusCount++;
+            if(ch == '+') plusCount++;
+        }
+
+//        if (plusCount == inputStr.length())
+//            return String.valueOf(0);
+
+        if (minusCount % 2 != 0 && k % 2 == 0)
+            return "IMPOSSIBLE";
+
+//        if (minusCount % k != 0 && plusCount == 0)
+//            return "IMPOSSIBLE";
+//
+//        if (minusCount == plusCount && minusCount%k != 0)
+//            return "IMPOSSIBLE";
+//
+//        if (minusCount % 2 != 0 && k % 2 == 0)
+//            return "IMPOSSIBLE";
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        sb.append("-");
+        for (int i = 1; i < k; i++) {
+            sb.append("+");
+        }
+        sb.append("-");
+
+        for (int i = 0; i < k; i++)
+            sb2.append("-");
+
+        int groups = countSubStr(inputStr, sb.toString());
+        int groups2 = countSubStr(inputStr, sb2.toString());
+
+        if (plusCount == k && minusCount == k && groups2 == 0)
+            return String.valueOf(k);
+
+        int count = groups + groups2;
+        if (count > 0)
+            return String.valueOf(groups*2 + groups2);
+        else {
+            if (groups == 0) {
+                for (char ch : inputStr.toCharArray()) {
+                    if (ch != '+')
+                        return "IMPOSSIBLE";
+                }
+                return String.valueOf(0);
+            }
+        }
+
+        return String.valueOf(-1);
+    }

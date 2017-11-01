@@ -13,7 +13,7 @@ public class ArrayProductExceptSelf {
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        int runningProductBeforeI = 1. runningProductAfterI = 1;
+        int runningProductBeforeI = 1, runningProductAfterI = 1;
         for (int i = 0; i < n; i++) {
             result[i] = runningProductBeforeI;
             runningProductBeforeI *= nums[i];

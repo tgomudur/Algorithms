@@ -9,18 +9,18 @@ public class TicTacToe {
     int[] cols;
     int size;
     int diagonal;
-    int antiDigonal;
+    int antiDiagonal;
 
     public TicTacToe(int n) {
         size = n;
         rows = new int[n];
         cols = new int[n];
         diagonal = 0;
-        antiDigonal = 0;
+        antiDiagonal = 0;
     }
 
     public boolean isGameOver(int row, int col, int player) {
-        if (Math.abs(rows[row]) == size || Math.abscols[col]) == size ||
+        if (Math.abs(rows[row]) == size || Math.abs(rows[col]) == size ||
                 Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
             return true;
         }
@@ -35,7 +35,7 @@ public class TicTacToe {
         if ((row - col) == 0)
             diagonal += toAdd;
 
-        if ((row + col) == (n - 1))
+        if ((row + col) == (size - 1))
             antiDiagonal += toAdd;
 
         if (isGameOver(row, col, player))

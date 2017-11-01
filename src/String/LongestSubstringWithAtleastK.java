@@ -12,7 +12,7 @@ package String;
  */
 
 public class LongestSubstringWithAtleastK {
-    public int longestSubstringIterative(String s) {
+    public int longestSubstringIterative(String s, int k) {
         int maxLength = 0;
         for (int numUniqueChar = 0; numUniqueChar < 26; numUniqueChar++) {
             maxLength = Math.max(maxLength, longestSubstringIterativeHelper(s, k, numUniqueChar));
@@ -44,7 +44,7 @@ public class LongestSubstringWithAtleastK {
     // Divide and Conquer
     // Time : O(n)
     // Space: O(26)
-    public int longestSubstringDC(String s) {
+    public int longestSubstringDC(String s, int k) {
         return longestSubstringDCHelper(s.toCharArray(), k, 0, s.length());
     }
 

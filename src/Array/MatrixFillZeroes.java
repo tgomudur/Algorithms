@@ -1,15 +1,18 @@
 package Array;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by tharun on 5/4/17.
  */
 public class MatrixFillZeroes {
     // Time : O(mn)
     // Space : O(1)
-    public int fillZeroesEfficient(int[][] matrix) {
+    public void fillZeroesEfficient(int[][] matrix) {
         boolean firstColumnHasZero = false;
         for (int row = 0; row < matrix.length; row++) {
-            if (matrix[row][0]) firstColumnHasZero = true
+            if (matrix[row][0] == 0) firstColumnHasZero = true;
             for (int col = 1; col < matrix[0].length; col++) {
                 if (matrix[row][col] == 0) {
                     matrix[row][0] = 0;
@@ -29,14 +32,14 @@ public class MatrixFillZeroes {
 
     // Time : O(mn)
     // Space = O(m + n)
-    public int fillZeroes(int[][] matrix) {
+    public void fillZeroes(int[][] matrix) {
         Set<Integer> rowsWithZeroes = new HashSet<>();
         Set<Integer> colWithZeroes = new HashSet<>();
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[0].length; col++) {
                 if (matrix[row][col] == 0) {
                     rowsWithZeroes.add(row);
-                    colsWithZeroes.add(col);
+                    colWithZeroes.add(col);
                 }
             }
         }
@@ -50,7 +53,7 @@ public class MatrixFillZeroes {
 
         for (int col = 0; col < matrix[0].length; col++){
             for (int row = 0; row < matrix[0].length; row++) {
-                if (colsWithZeroes.contains(col))
+                if (colWithZeroes.contains(col))
                     matrix[row][col] = 0;
             }
         }

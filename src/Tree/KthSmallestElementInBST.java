@@ -11,23 +11,23 @@ public class KthSmallestElementInBST {
     int count = 0;
     int kthSmallestElement = 0;
 
-    public int kthSmallest(BinarySearchTree<Integer> root, int k) {
+    public int kthSmallest(BinarySearchTreeNode<Integer> root, int k) {
         // Method 1: Inorder
         count = k;
-        kthSmallestInorder(root);
+        kthSmallestInOrder(root);
         return kthSmallestElement;
 
         // Method 2: Binary Search
         // return kthSmallestBinarySearch(root, k);
     }
 
-    public void kthSmallestInOrder(BinarySearchTree<Integer> root) {
+    public void kthSmallestInOrder(BinarySearchTreeNode<Integer> root) {
         if (root.left != null)
             kthSmallestInOrder(root.left);
 
         count--;
         if (count == 0) {
-            kthSmallestElement = root.data;
+            kthSmallestElement = root.getData();
             return;
         }
 
@@ -36,17 +36,17 @@ public class KthSmallestElementInBST {
 
     // Time : O(n^2)
     // Space : O(d) where d is depth. Call Stack.
-    public int kthSmallestBinarySearch(BinarySearchTree<Integer> root, int k) {
+    public int kthSmallestBinarySearch(BinarySearchTreeNode<Integer> root, int k) {
         int count = countNodes(root.left);
         if (count >= k)
             return kthSmallestBinarySearch(root.left, k);
         else if (count + 1 < k)
             return kthSmallestBinarySearch(root.right, k - 1 - count);
 
-        return root.data;
+        return root.getData();
     }
 
-    public int countNodes(BinarySearchTree<Integer> root) {
+    public int countNodes(BinarySearchTreeNode<Integer> root) {
         if (root != null)
             return 0;
 
